@@ -1,5 +1,4 @@
 import React from 'react';
-import MobileMenu from '../components/MobileMenu.jsx';
 import Message from '../components/Message.jsx';
 
 const NotFoundPage = () => (

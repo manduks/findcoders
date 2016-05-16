@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import AuthPage from './AuthPage.jsx';
 import { Link } from 'react-router';
+import Legend from '../components/Legend.jsx';
 
 export default class SignInPage extends React.Component {
   constructor(props) {
@@ -45,8 +46,9 @@ export default class SignInPage extends React.Component {
 
     const content = (
       <div className="wrapper-auth">
+        <Legend/>
         <h1 className="title-auth">Sign In.</h1>
-        <p className="subtitle-auth" >Signing in allows you to view private lists</p>
+        <p className="subtitle-auth" ></p>
         <form onSubmit={this.onSubmit}>
           <div className="list-errors">
             {errorMessages.map(msg => (

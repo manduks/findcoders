@@ -3,8 +3,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session'; // XXX: SESSION
 import { Lists } from '../../api/lists/lists.js';
-import UserMenu from '../components/UserMenu.jsx';
-import ListList from '../components/ListList.jsx';
 import ConnectionNotification from '../components/ConnectionNotification.jsx';
 import Loading from '../components/Loading.jsx';
 
@@ -32,7 +30,7 @@ export default class App extends React.Component {
     // redirect / to a list once lists are ready
     if (!loading && !children) {
       const list = Lists.findOne();
-      this.context.router.replace(`/lists/${ list._id }`);
+      this.context.router.replace(`/list`);
     }
   }
 
@@ -75,14 +73,9 @@ export default class App extends React.Component {
 
     return (
       <div id="container">
-      {/*  <section id="menu">
-          <UserMenu user={user} logout={this.logout}/>
-          <ListList lists={lists}/>
-        </section> */}
         {showConnectionIssue && !connected
           ? <ConnectionNotification/>
           : null}
-        {/*<div className="content-overlay" onClick={closeMenu}></div>*/}
         <div id="content-container">
           <ReactCSSTransitionGroup
             transitionName="fade"

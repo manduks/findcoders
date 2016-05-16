@@ -2,6 +2,7 @@ import React from 'react';
 import AuthPage from './AuthPage.jsx';
 import { Link } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
+import Legend from '../components/Legend.jsx';
 
 export default class JoinPage extends React.Component {
   constructor(props) {
@@ -52,8 +53,9 @@ export default class JoinPage extends React.Component {
 
     const content = (
       <div className="wrapper-auth">
+        <Legend/>
         <h1 className="title-auth">Join.</h1>
-        <p className="subtitle-auth" >Joining allows you to make private lists</p>
+        <p className="subtitle-auth" ></p>
         <form onSubmit={this.onSubmit}>
           <div className="list-errors">
             {errorMessages.map(msg => (
