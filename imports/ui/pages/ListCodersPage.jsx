@@ -27,9 +27,13 @@ export default class App extends React.Component {
   }
   searchForCoders(component, values) {
     const self = this;
-    /*Meteor.call('github.find', values, function (err, data) {
+    console.log(121231232);
+    Meteor.call('github.find', values, function (err, data) {
+      if (err) {
+        return console.log(err);
+      }
       self.setState({resultData: data.items});
-    });*/
+    });
   }
   render() {
     return (

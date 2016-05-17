@@ -10,7 +10,7 @@ export default class SearchField extends React.Component {
   onSearch() {
     const values = {
       switchValue: this.refs.switch.state.value,
-      fieldValue : this.refs.field.getValue(),
+      fieldValue : this.refs.field.value,
     };
     this.setState(values);
     this.props.onSearch(this, values);
@@ -25,7 +25,7 @@ export default class SearchField extends React.Component {
         </div>
         <section>
           <Switch ref="location" ref="switch" onChange={this.onChangeSwitch} defaultChecked={true}/>
-          <button  className="btn-primary">Search</button>
+          <button  className="btn-primary" onClick={this.onSearch.bind(this)}>Search</button>
         </section>
       </div>
     );
