@@ -5,8 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import Header from '../components/Header.jsx';
 import Legend from '../components/Legend.jsx';
 import SearchField from '../components/SearchField.jsx';
-//import Button from '../components/Button.jsx';
-//import Coders from '../components/Coders.jsx';
+import Coders from '../components/Coders.jsx';
 import Footer from '../components/Footer.jsx';
 
 const CONNECTION_ISSUE_TIMEOUT = 5000;
@@ -38,11 +37,11 @@ export default class App extends React.Component {
         <Header/>
         <Legend/>
         <SearchField onSearch={this.searchForCoders.bind(this)}/>
-        {/*<Coders data={this.state.resultData}/>
+        <Coders data={this.state.resultData}/>
         <section className="qc-go-pro">
           <span> WANT MORE ?</span>
-          <Button text="GO PRO" onClick={this.goToPay}/>
-        </section>*/}
+          <button  className="btn-primary">GO PRO</button>
+        </section>
         <Footer/>
       </main>
     );
