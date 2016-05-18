@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 
 /* Import components*/
 import Header from '../components/Header.jsx';
+import Menu from '../components/Menu.jsx';
 import Legend from '../components/Legend.jsx';
 import SearchField from '../components/SearchField.jsx';
 import Coders from '../components/Coders.jsx';
@@ -34,10 +35,11 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <main className="container">
         <div className="content-scrollable">
-          <Header />
+          { this.props.user ? <Menu /> : <Header /> }
           <Legend />
           <SearchField onSearch={this.searchForCoders} />
           <Coders data={this.state.resultData} />
@@ -51,3 +53,7 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  user: React.PropTypes.object      // current meteor user
+};

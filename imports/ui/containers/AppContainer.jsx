@@ -12,10 +12,6 @@ export default createContainer(() => {
     user: Meteor.user(),
     loading: !(publicHandle.ready() && privateHandle.ready()),
     connected: Meteor.status().connected,
-    menuOpen: Session.get('menuOpen'),
-    /*lists: Lists.find({ $or: [
-      { userId: { $exists: false } },
-      { userId: Meteor.userId() },
-    ] }).fetch(),*/
+    //menuOpen: Session.get('menuOpen')
   };
 }, App);
