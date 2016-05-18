@@ -8,45 +8,45 @@ import SearchField from '../components/SearchField.jsx';
 import Coders from '../components/Coders.jsx';
 import Footer from '../components/Footer.jsx';
 
-const CONNECTION_ISSUE_TIMEOUT = 5000;
-
 export default class App extends React.Component {
   constructor(props) {
-   super(props);
-   this.state = {
-     resultData: [],
-   };
+    super(props);
+    this.state = {
+      resultData: [],
+    };
+    this.searchForCoders = this.searchForCoders.bind(this);
+    this.onGetDataFromGithub = this.onGetDataFromGithub.bind(this);
   }
 
-  componentDidMount() {  }
+  onGetDataFromGithub(err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    return this.setState({ resultData: data.items });
+  }
 
-  componentWillReceiveProps() {  }
+  searchForCoders(component, values) {
+    Meteor.call('github.find', values, this.onGetDataFromGithub);
+  }
 
   goToPay() {
     this.context.router.replace('/pay');
   }
-  searchForCoders(component, values) {
-    const self = this;
-    console.log(121231232);
-    Meteor.call('github.find', values, function (err, data) {
-      if (err) {
-        return console.log(err);
-      }
-      self.setState({resultData: data.items});
-    });
-  }
+
   render() {
     return (
       <main className="container">
-        <Header/>
-        <Legend/>
-        <SearchField onSearch={this.searchForCoders.bind(this)}/>
-        <Coders data={this.state.resultData}/>
-        <section className="qc-go-pro">
-          <span> WANT MORE ?</span>
-          <button  className="btn-primary">GO PRO</button>
-        </section>
-        <Footer/>
+        <div className="content-scrollable">
+          <Header />
+          <Legend />
+          <SearchField onSearch={this.searchForCoders} />
+          <Coders data={this.state.resultData} />
+          <section className="qc-go-pro">
+            <span> WANT MORE ?</span>
+            <button className="btn-primary"> GO PRO </button>
+          </section>
+          <Footer />
+        </div>
       </main>
     );
   }

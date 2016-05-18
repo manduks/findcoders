@@ -1,10 +1,13 @@
 import React from 'react';
 import Message from '../components/Message.jsx';
+import Legend from '../components/Legend.jsx';
 
 const NotFoundPage = () => (
   <div className="page not-found">
     <div className="content-scrollable">
-      <Message title="Page not found"/>
+      <br /> <br /> <br />
+      <Legend />
+      <Message title="Page not found" />
     </div>
   </div>
 );

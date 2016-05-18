@@ -46,7 +46,7 @@ export default class SignInPage extends React.Component {
 
     const content = (
       <div className="wrapper-auth">
-        <Legend/>
+        <Legend />
         <h1 className="title-auth">Sign In.</h1>
         <p className="subtitle-auth" ></p>
         <form onSubmit={this.onSubmit}>
@@ -56,11 +56,11 @@ export default class SignInPage extends React.Component {
             ))}
           </div>
           <div className={`input-symbol ${errorClass('email')}`}>
-            <input type="email" name="email" ref="email" placeholder="Your Email"/>
+            <input type="email" name="email" ref="email" placeholder="Your Email" />
             <span className="icon-email" title="Your Email"></span>
           </div>
           <div className={`input-symbol ${errorClass('password')}`}>
-            <input type="password" name="password" ref="password" placeholder="Password"/>
+            <input type="password" name="password" ref="password" placeholder="Password" />
             <span className="icon-lock" title="Password"></span>
           </div>
           <button type="submit" className="btn-primary">Sign in</button>
@@ -70,7 +70,7 @@ export default class SignInPage extends React.Component {
 
     const link = <Link to="/join" className="link-auth-alt">Need an account? Join Now.</Link>;
 
-    return <AuthPage content={content} link={link}/>;
+    return <AuthPage content={content} link={link} />;
   }
 }
 

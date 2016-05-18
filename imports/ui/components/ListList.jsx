@@ -18,7 +18,7 @@ export default class ListList extends React.Component {
         alert('Could not create list.');
       }
     });
-    router.push(`/lists/${ listId }`);
+    router.push(`/lists/${listId}`);
   }
 
   render() {
